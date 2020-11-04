@@ -1,11 +1,14 @@
 const TOKENIZER_NUM = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-const TOKENIZER_SYMBOL = ['+', '-', '*', '/', '(', ')', '=']
+// 浮点数校验
+const floatReg = /^([+]\d+[.]\d+|\d+[.]\d+|[+]\d+|\d+)$/i
+const TOKENIZER_SYMBOL = ['+', '-', '*', '/', '(', ')', '.', '=']
 const TOKENIZER_PLUS = '+'
 const TOKENIZER_MINUS = '-'
 const TOKENIZER_ASTR = '*'
 const TOKENIZER_SLASH = '/'
 const TOKENIZER_LPAREN = '('
 const TOKENIZER_RPAREN = ')'
+const TOKENIZER_DOT = '.'
 const TOKENIZER_EQUALS = '='
 const TOKENIZER_ENTER = 'Enter'
 
@@ -35,7 +38,7 @@ class Calculator {
       console.warn('el is not Valid Element!')
       return
     }
-    
+
     ;(this.el as HTMLElement).addEventListener('keydown', this.onChange)
 
     this.onChangeCallback = options.onChange
@@ -47,11 +50,12 @@ class Calculator {
 
   onChange(e: KeyboardEvent) {
     let result: number | string = 0
-    if (!this.calcFlag) {
-      return
-    } else {
+    if (e.key === TOKENIZER_EQUALS && !this.inputStack.length) {
+      this.calcFlag = true
+      this.inputStack.push(e.key)
     }
-    if (e.key === TOKENIZER_EQUALS) {
+
+    if (!this.calcFlag) {
     } else {
     }
 
