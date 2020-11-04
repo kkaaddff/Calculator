@@ -1,0 +1,24 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "javaScript Calculator",
+  "main": "lib/index.js",
+  "keywords": [
+    "Calculator",
+    "javaScript",
+    "calc"
+  ],
+  "authors": [
+    "zhangqicheng <zqc007@gmail.com> (https://github.com/kkaaddff)"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/umijs/umi.git"
+  },
+  "homepage": "https://github.com/umijs/umi/tree/master/packages/ast#readme"
+}
